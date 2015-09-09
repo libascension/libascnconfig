@@ -55,13 +55,7 @@ ascnconfig::ascnconfig (std::string appName, bool importFromFile)
 	m_error = kNone;
 
 	if (importFromFile)
-	{
-		std::stringstream ss;
-
-		ss << paths::getConfigPath() << '/' << m_app << ".conf";
-
-		importSettings(ss.str());
-	}
+		loadConfig();
 }
 
 ascnconfig::ascnconfig (std::string orgName, std::string appName, bool importFromFile)
@@ -71,11 +65,5 @@ ascnconfig::ascnconfig (std::string orgName, std::string appName, bool importFro
 	m_error = kNone;
 
 	if (importFromFile)
-	{
-		std::stringstream ss;
-
-		ss << paths::getConfigPath() << '/' << m_org << '/' << m_app << ".conf";
-
-		importSettings(ss.str());
-	}
+		loadConfig();
 }
